@@ -1,0 +1,66 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Add New Ships       
+    </div>    
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            <!--Big blue-->
+            <!-- <div class="text-center loading">
+                <h2>Loading..</h2>
+                <div class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+            </div> -->
+
+            <!-- style="display: none;" -->
+            <div class="row pages">
+                <div class="col-md-12">
+                  <div class="container">
+                        
+                        <div class="card dark_card" style="margin: 20px 0px 20px;">
+                            <div class="card-body">
+                              <form>
+                                 
+                                <div class="boann_input">
+                                  <label>Ship Name</label>
+                                  <input type="text" name="name" ng-model="ship.name" uib-typeahead="ships for ships in getShips($viewValue)" class="form-control input_boann">                     
+                                </div>
+
+                                <div class="boann_input">
+                                  <label>Price</label>
+                                  <input type="text" name="price" ng-model="ship.price" class="form-control input_boann">                     
+                                </div>
+
+                                <div class="boann_input">
+                                  <label>Location</label>
+                                  <input type="text" name="location" ng-model="ship.location" class="form-control input_boann">                     
+                                </div>
+
+                                <div>
+                                  <button ng-click="addship(ship)" class="btn btn-indigo">Save</button>
+                                </div>
+                              </form>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

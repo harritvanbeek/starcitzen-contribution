@@ -1,0 +1,119 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        ship catalogus       
+    </div>  
+
+    <div class="PageHeaderLeft-pageHeaderRight">
+        <div class="quicksearch_inputcontainer">
+            <div class="quicksearchinput_container">                
+                    <label for="search" class="quicksearchinput_icon">Search</label> 
+                    <input id="search" class="quicksearchinput_searchinput" ng-model="search" type="text" autocomplete="off" spellcheck="false">                   
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <!--Big blue
+        <div class="text-center loading">
+            <h2>Loading..</h2>
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+        </div>-->
+        
+        <div style="margin-bottom: 20px">
+            <div class="row pages">
+                <div class="col-md-12 ship_cat">
+                    <!-- <div class="row">
+                        <div class="col-12 filtered-header">
+                            <div class="filtered-header-left float-left">
+                                <button ng-click="set_filter(filter)" type="button" class="panel-btn panel-btn-small active" aria-label="Hide Filters" data-original-title="null">
+                                    <div class="panel-btn-inner">
+                                        <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+                                    </div>
+                                </button>
+                            </div> 
+
+                            <div class="filtered-header-right float-right">
+                                <button ng-click="set_details(details)" type="button" class="panel-btn panel-btn-small" aria-label="Show Details">
+                                    <div class="panel-btn-inner">
+                                        <i class="fad fa-info-square" aria-hidden="true"></i>
+                                            Show Details
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p> -->
+
+                  <div class="row">
+                    <div class="col-12 col-lg-3 col-xxl-2 boann_filter"> 
+                        <div class="form">
+                            <div class="boann_input">
+                                <input class="form-control input_boann" placeholder="name">
+                            </div>
+
+                            <div class="boann_input">
+                                <input class="form-control input_boann" placeholder="name">
+                            </div>
+                        </div>                                
+                    </div>                      
+                    
+                    <div class="col-12 col-animated">
+                        <div class="row">
+                            <div class="col-md-4" ng-repeat="ship in ships | filter:search">  
+                                <div class="card-warper">
+                                    <div class="card dark_card">
+                                        <div class="card-inner">
+                                            <div class="card-heading">
+                                                <h2 class="card-title float-left">
+                                                    <span ng-bind-html="ship.ship_name"></span><br>
+                                                    <small ng-bind-html="ship.manufacturer"></small>
+                                                </h2>
+                                                <button ng-click="addShip(ship.ship_uuid)" class="float-right" title="add-to-hangar">
+                                                    <div class="panel-btn-inner">
+                                                        <span ng-click="bookmark(ship.ship_uuid)">
+                                                            <i class="far fa-bookmark"></i>
+                                                        </span>
+                                                    </div>
+                                                </button> 
+                                                <div class="clearfix"></div>                                                        
+                                            </div>
+
+                                            <div class="card-image no-details">
+                                                <a ui-sref="ship_details({uuid:ship.ship_uuid})"  class="image" style="background-image: url('{{ship.ship_img}}');">
+                                                    <div class="info" ng-if="ship.location || ship.showPrice">
+                                                        <h4>
+                                                          <span>Location: <span ng-bind-html="ship.location"></span> </span>
+                                                          <span>Price: <span ng-bind-html="ship.price"></span></span>
+                                                        </h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>                               
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

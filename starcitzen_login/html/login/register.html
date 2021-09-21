@@ -1,0 +1,28 @@
+<form>
+    <div class="form-group">
+        <label>Star Citzen naam :</label>
+        <input class="form-control" ng-model="form.name" type="text" name="name">
+    </div>
+
+    <div class="form-group">
+        <label>E-mail adres :</label>
+        <input class="form-control" ng-model="form.email" type="email" name="email">
+    </div>
+
+    <div class="form-group">
+        <label>Wachtwoord :</label>
+        <input class="form-control" ng-model="form.password" type="password" name="password">
+    </div>
+
+    <div class="form-group">
+        <label>Herhaal je wachtwoord :</label>
+        <input class="form-control" ng-model="form.password_again" type="password" name="password_again">
+    </div>
+
+    
+  <hr>
+  <div class="form-group text-center">                              
+    <button ng-click="submit(form)" class="btn btn-sm btn-primary">Registeer</button>
+    <a ui-sref="login" class="btn btn-sm btn-primary">Login</a>
+  </div>    
+</form>

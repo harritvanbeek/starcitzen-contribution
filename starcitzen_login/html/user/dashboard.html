@@ -1,0 +1,203 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Dashboard
+    </div>    
+
+    <div class="PageHeaderLeft-pageHeaderRight">
+        <div class="quicksearch_inputcontainer">
+            <div class="quicksearchinput_container">                
+                    <label for="aUEC" class="quicksearchinput_icon">aUEC</label> 
+                    <input id="aUEC" class="quicksearchinput_searchinput" ng-model="bank.aUEC" type="text" autocomplete="off" spellcheck="false">                
+                    <button class="quicksearchinput_icon quicksearch_button" ng-click="submit_aUEC(bank)">
+                        <i class="fas fa-check"></i>
+                    </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            <!--Big blue-->
+            <div class="text-center loading">
+                <h2>Loading..</h2>
+                <div class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row pages" style="display: none;">
+                <div class="col-md-12">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Player</th>
+                                        <th>Current bank</th>
+                                        <th>Contribution</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="user in users">
+                                        <td class="text-white" ng-bind-html="user.username"></td>
+                                        <td class="text-white" ng-bind-html="user.bank"></td>
+                                        <td class="text-white">
+                                            <span ng-bind-html="user.contribution"></span>
+                                            <a ng-if="user.useruuid === user.sessionuuid" ng-click="reset_contribution(user)"><span class="float-right" title="reset"><i class="fas fa-redo"></i></span></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                       
+                        <div class="col-md-6">
+                            <div ng-show="ships.length < 1" class="container">
+                                <div class="card dark_card">
+                                  <div class="card-body">
+                                    <h2 class="text-center">No data found</h2>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <table ng-show="ships.length > 0"  class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Ship</th>
+                                        <th>Price</th>
+                                        <th>To go</th>
+                                        <th>Owner</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="ship in ships">
+                                        <td class="text-white"> <a ng-click="show_modal_list(ship)"><i class="fas fa-eye"></i> <span ng-bind-html="ship.name"></span></a></td>
+                                        <td class="text-white" ng-bind-html="ship.price"></td>
+                                        <td class="text-white" ng-bind-html="ship.togo"></td>
+                                        <td class="text-white" ng-bind-html="ship.username"></td>
+                                        <td class="text-white">
+                                            <a ng-click="show_modal_save_ship(ship)" style="margin-right: 10px !important;"><i class="fas fa-edit"></i></a>                                             
+                                            <a ui-sref="ship_details({uuid:ship.shipuuid})" class="text-white"><i class="fas fa-info"></i></a>                                             
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!-- <div id="CompanyEarings14Days"></div>
+
+                    <div id="CompanyCapitalChart"></div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="show_modal_list" tabindex="-1" role="dialog" aria-labelledby="show_modal_list"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="show_modal_list"> Donations on {{thisShip.name}} of {{thisShip.username}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">       
+            <div class="text-center" ng-if="donateships.length < 1">
+                <h6>Make your first donation on this ship!</h6>
+            </div>
+            <table class="table" ng-if="donateships.length > 0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Ammount</th>
+                        <th>Post data</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr ng-repeat="ship in donateships">
+                        <td class="text-white" ng-bind-html="ship.username"></td>
+                        <td class="text-white" ng-bind-html="ship.donate"></td>
+                        <td class="text-white" ng-bind-html="ship.postdate"></td>
+                        <td class="text-white">
+                            <span ng-show="ship.useruuid === ship.uuid">
+                                <a ng-click="deleteShipDonation(ship)" title="delete your donation">Delete</a>
+                            </span> 
+
+                            <span ng-show="ship.useruuid !== ship.uuid">N/A</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" ng-click="DonateThisShip(thisShip)" class="btn btn-sm btn-indigo">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="donating_save_ship" tabindex="-1" role="dialog" aria-labelledby="donating_save_ship"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="donating_save_ship"> you want to help <span ng-bind-html="thisShip.username"></span> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="saving">
+            Saving his ship : <span ng-bind-html="thisShip.name"></span> ?<br>
+            how much do you want to donate 
+        </label>
+        <hr>
+        
+        <div class="input-group mb-3 boann_input">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">aUEC</span>
+            </div>
+            <input type="" name="" id="saving" ng-model="thisShip.donate" class="form-control input_boann">
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" ng-click="DonateThisShip(thisShip)" class="btn btn-sm btn-indigo">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

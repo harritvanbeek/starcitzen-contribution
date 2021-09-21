@@ -1,0 +1,531 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Update: <span ng-bind-html="ship.ship_name"></span>      
+    </div>    
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            <div class="row pages ship_deatils">
+                <div class="col-md-12">
+                    <div class="header">
+                        <div class="ship_name">
+                            <h1> 
+                                <span class="float-left" ng-bind-html="ship.ship_name"></span>
+
+                                <div class="float-right manufacturer">
+                                    <span class="manufacturer_prefix">from</span>
+                                    <span ng-bind-html="ship.manufacturer"></span>
+                                    <img class="manufacturer_logo" ng-src="{{ship.manufacturer_logo}}">                                                                     
+                                </div>
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    
+                    <div class="row">
+                        <div class="col-md-8">     
+                            <div class="image-wrapper">                                
+                                <div class="image" style="background-image: url('{{ship.ship_image_big}}');" ></div> 
+                            </div>                   
+                            <div class="row production_status">
+                                <div class="col-md-6">
+                                    <h3 class="text-uppercase" ng-bind-html="ship.production.production_status"></h3>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="float-right">
+                                        <h3 class="text-uppercase"><span ng-bind-html="ship.production.focus"></span></h3>
+                                    </div>                                    
+                                </div>
+
+                                <blockquote class="description">
+                                    <p ng-bind-html="ship.production.description"></p>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            
+                            <div class="panel-wrapper panel-outer-spacing">
+                                <div class="panel">
+                                    <div class="panel-inner">
+                                        <div class="row metrics-padding">
+                                            <div class="col-12 col-lg-3">
+                                               <div class="metrics-title">buy</div> 
+                                            </div>
+                                            <div class="col-12 col-lg-9 metrics-block">
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Price:</div> 
+                                                        <div class="metrics-value" ng-bind-html="ship.buy.price"></div>                                                     
+                                                    </div>
+
+                                                    <div class="col-7 col-lg-8">
+                                                        <div class="metrics-label">Location:</div> 
+                                                        <div class="metrics-value" ng-bind-html="ship.buy.location"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+
+                            <div class="panel-wrapper panel-outer-spacing">
+                                <div class="panel">
+                                    <div class="panel-inner">
+                                        <div class="row metrics-padding">
+                                            <div class="col-12 col-lg-3">
+                                               <div class="metrics-title">base</div> 
+                                            </div>
+                                            <div class="col-12 col-lg-9 metrics-block">
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Length:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.length"></span>
+                                                        </div>                                                     
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Height:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.height"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Cargo:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.cargo"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Beam:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.beam"></span> 
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Mass:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.mass"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <hr>
+
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Classification:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.type"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Size:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.size"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-5">
+                                                        <div class="metrics-label">Pledge Price:</div> 
+                                                        <div class="metrics-value">
+                                                            $<span ng-bind-html="ship.base.price"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <hr>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="metrics-label">Last updated at?:</div> 
+                                                        <div class="metrics-value">
+                                                            <span ng-bind-html="ship.base.time_modified"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+
+                            <div class="panel-wrapper panel-outer-spacing">
+                                <div class="panel">
+                                    <div class="panel-inner">
+                                        <div class="row metrics-padding">
+                                            <div class="col-12 col-lg-3">
+                                               <div class="metrics-title">crew</div> 
+                                            </div>
+                                            <div class="col-12 col-lg-9 metrics-block">
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">min. Crew:</div> 
+                                                        <div class="metrics-value"> <span ng-bind-html="ship.crew.min_crew"></span> </div>                                                     
+                                                    </div>
+
+                                                    <div class="col-7 col-lg-8">
+                                                        <div class="metrics-label">max. Crew:</div> 
+                                                        <div class="metrics-value"> <span ng-bind-html="ship.crew.max_crew"></span> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+
+                            <div class="panel-wrapper panel-outer-spacing">
+                                <div class="panel">
+                                    <div class="panel-inner">
+                                        <div class="row metrics-padding">
+                                            <div class="col-12 col-lg-3">
+                                               <div class="metrics-title">speed</div> 
+                                            </div>
+                                            <div class="col-12 col-lg-9 metrics-block">
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">SCM Speed:</div> 
+                                                        <div class="metrics-value"> <span ng-bind-html="ship.speed.scm_speed"></span> m/s</div>                                                     
+                                                    </div>
+
+                                                    <div class="col-7 col-lg-8">
+                                                        <div class="metrics-label">Afterburner Speed:</div> 
+                                                        <div class="metrics-value"> <span ng-bind-html="ship.speed.afterburner_speed"></span> m/s</div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Pitch Max:</div> 
+                                                        <div class="metrics-value"> 
+                                                            <span ng-bind-html="ship.speed.pitch_max"></span>                                                              
+                                                        </div>                                                     
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Yaw Max:</div> 
+                                                        <div class="metrics-value"> 
+                                                            <span ng-bind-html="ship.speed.yaw_max"></span>                                                              
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Roll Max:</div> 
+                                                        <div class="metrics-value"> 
+                                                            <span ng-bind-html="ship.speed.roll_max"></span>                                                              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">X-Axis:</div> 
+                                                        <div class="metrics-value"> 
+                                                            <span ng-bind-html="ship.speed.xaxis"></span>                                                              
+                                                        </div>                                                     
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Y-Axis:</div> 
+                                                        <div class="metrics-value"> 
+                                                            <span ng-bind-html="ship.speed.yaxis"></span>                                                              
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="metrics-label">Z-Axis:</div> 
+                                                        <div class="metrics-value"> 
+                                                            <span ng-bind-html="ship.speed.zaxis"></span>                                                              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+
+                            <div class="page_action page_action_block">
+                                <a ng-href="{{ship.url}}" target="_blank" class="panel-btn" style="flex-grow: 3;">
+                                    <div class="panel-btn-inner">
+                                        On sale: <span ng-bind-html="ship.base.price"></span> exc. VAT
+                                    </div>
+                                </a>
+
+                                <div class="panel-btn" style="flex-grow: 1;">
+                                    <div id="btnGroupDrop1" type="button" class="panel-btn-inner" data-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </div>
+                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                      <a class="dropdown-item" ng-click="images(ship)" data-toggle="modal" data-target="#ModalImages">
+                                        <i class="fa fa-images" aria-hidden="true"></i>
+                                        <span>Images</span>
+                                      </a>
+                                      <!-- <a class="dropdown-item">Dropdown link</a> -->
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    <hr>
+
+                    <!-- 
+                    <div class="row components">
+                        <div class="col-12">
+                            <div class="row">
+                               <div class="col-12 col-md-6 col-lg-4">
+                                   <div class="hardpoint-group">
+                                       <h2 class="hardpoint-group-label">Avionics</h2>
+                                   </div>
+                                   <div class="panel-wrapper panel-outer-spacing">
+                                       <div class="panel">
+                                           <div class="panel-inner">
+                                               <div class="hardpoint-group-inner">
+                                                    <div class="hardpoint-type">
+                                                        <div class="hardpoint-type-label">
+                                                            <img src="/starcitzen_login/templates/assets/hardpoints/computers.svg" class="hardpoint-type-icon">
+                                                            <span ng-bind-html="ship.compiled.RSIAvionic.computers.type"></span>
+                                                        </div>  
+                                                    </div>
+
+                                                    <div class="hardpoint-items">
+                                                        <div class="hardpoint-item">
+                                                            <div class="hardpoint-item-quantity">
+                                                                <span ng-bind-html="ship.compiled.RSIAvionic.computers.quantity"></span> 
+                                                                <span class="text-muted">x</span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="hardpoint-item-slots">
+                                                            <div class="hardpoint-item-slot">
+                                                                <div class="hardpoint-item-inner">
+                                                                    <div class="hardpoint-item-size">
+                                                                        <span ng-bind-html="ship.compiled.RSIAvionic.computers.component_size"></span>                                                                                                                                                                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+
+                                               <div class="hardpoint-group-inner">
+                                                    <div class="hardpoint-type">
+                                                        <div class="hardpoint-type-label">
+                                                            <img src="/starcitzen_login/templates/assets/hardpoints/radar.svg" class="hardpoint-type-icon">
+                                                            <span ng-bind-html="ship.compiled.RSIAvionic.radar.type"></span>
+                                                        </div>  
+                                                    </div>
+
+                                                    <div class="hardpoint-items">
+                                                        <div class="hardpoint-item">
+                                                            <div class="hardpoint-item-quantity">
+                                                                <span ng-bind-html="ship.compiled.RSIAvionic.radar.quantity"></span> 
+                                                                <span class="text-muted">x</span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="hardpoint-item-slots">
+                                                            <div class="hardpoint-item-slot">
+                                                                <div class="hardpoint-item-inner">
+                                                                    <div class="hardpoint-item-size">
+                                                                        <span ng-bind-html="ship.compiled.RSIAvionic.radar.component_size"></span>                                                                                                                                                                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+
+
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="hardpoint-group">
+                                       <h2 class="hardpoint-group-label">System</h2>
+                                   </div> 
+
+                                   <div class="panel-wrapper panel-outer-spacing">
+                                       <div class="panel">
+                                           <div class="panel-inner">
+                                               <div class="hardpoint-group-inner">
+                                                    <div class="hardpoint-type">
+                                                        <div class="hardpoint-type-label">
+                                                            <img src="" class="hardpoint-type-icon">
+                                                            Computers
+                                                        </div>  
+                                                    </div>
+
+                                                    <div class="hardpoint-items">
+                                                        <div class="hardpoint-item">
+                                                            <div class="hardpoint-item-quantity">1 <span class="text-muted">x</span></div>
+                                                        </div>
+                                                        
+                                                        <div class="hardpoint-item-slots">
+                                                            <div class="hardpoint-item-slot">
+                                                                <div class="hardpoint-item-inner">
+                                                                    <div class="hardpoint-item-size">Size M (2)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>                                  
+                               </div>
+
+                               <div class="col-12 col-md-6 col-lg-4">
+                                   <div class="hardpoint-group">
+                                       <h2 class="hardpoint-group-label">Propulsion</h2>
+                                   </div>
+                                   <div class="panel-wrapper panel-outer-spacing">
+                                       <div class="panel">
+                                           <div class="panel-inner">
+                                               <div class="hardpoint-group-inner">
+                                                    <div class="hardpoint-type">
+                                                        <div class="hardpoint-type-label">
+                                                            <img src="" class="hardpoint-type-icon">
+                                                            Computers
+                                                        </div>  
+                                                    </div>
+
+                                                    <div class="hardpoint-items">
+                                                        <div class="hardpoint-item">
+                                                            <div class="hardpoint-item-quantity">1 <span class="text-muted">x</span></div>
+                                                        </div>
+                                                        
+                                                        <div class="hardpoint-item-slots">
+                                                            <div class="hardpoint-item-slot">
+                                                                <div class="hardpoint-item-inner">
+                                                                    <div class="hardpoint-item-size">Size M (2)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="hardpoint-group">
+                                       <h2 class="hardpoint-group-label">Thruster</h2>
+                                   </div>
+                                   <div class="panel-wrapper panel-outer-spacing">
+                                       <div class="panel">
+                                           <div class="panel-inner">
+                                               <div class="hardpoint-group-inner">
+                                                    <div class="hardpoint-type">
+                                                        <div class="hardpoint-type-label">
+                                                            <img src="" class="hardpoint-type-icon">
+                                                            Computers
+                                                        </div>  
+                                                    </div>
+
+                                                    <div class="hardpoint-items">
+                                                        <div class="hardpoint-item">
+                                                            <div class="hardpoint-item-quantity">1 <span class="text-muted">x</span></div>
+                                                        </div>
+                                                        
+                                                        <div class="hardpoint-item-slots">
+                                                            <div class="hardpoint-item-slot">
+                                                                <div class="hardpoint-item-inner">
+                                                                    <div class="hardpoint-item-size">Size M (2)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="col-12 col-md-6 col-lg-4">
+                                   <div class="hardpoint-group">
+                                       <h2 class="hardpoint-group-label">Weapons</h2>
+                                   </div>
+                                   <div class="panel-wrapper panel-outer-spacing">
+                                       <div class="panel">
+                                           <div class="panel-inner">
+                                               <div class="hardpoint-group-inner">
+                                                    <div class="hardpoint-type">
+                                                        <div class="hardpoint-type-label">
+                                                            <img src="" class="hardpoint-type-icon">
+                                                            Computers
+                                                        </div>  
+                                                    </div>
+
+                                                    <div class="hardpoint-items">
+                                                        <div class="hardpoint-item">
+                                                            <div class="hardpoint-item-quantity">1 <span class="text-muted">x</span></div>
+                                                        </div>
+                                                        
+                                                        <div class="hardpoint-item-slots">
+                                                            <div class="hardpoint-item-slot">
+                                                                <div class="hardpoint-item-inner">
+                                                                    <div class="hardpoint-item-size">Size M (2)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+
+                            </div>
+                        </div>
+                    </div> 
+                    -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalImages" tabindex="-1" role="dialog" aria-labelledby="ModalImages"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalImages">Images</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+            <div ng-repeat="img in shipImages" class="col-12 col-md-6 col-lg-4 fade-list-item col-xl-3 col-xxl-2dot4 col-3xl-2">
+              <img style="width:100%;" src="{{img}}">
+            </div>
+          </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

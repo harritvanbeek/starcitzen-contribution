@@ -1,0 +1,40 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Import star citzen ships       
+    </div>    
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div class="row pages">
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="card dark_card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h1>Import ships</h1>
+                                <button ng-click="import()" class="btn btn-warning">Import</button>
+                            
+                                <div ng-show="loading" class="bar">
+                                    <span class="bar_fill">                                    
+                                        <span class="bar_fill_text"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <table class="table">
+                                <tr ng-repeat="ship in ships">
+                                    <td class="white-text">{{ship.data}}</td>
+                                    <td class="white-text">{{ship.dataContent}}</td>
+                                </tr>
+                            </table>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

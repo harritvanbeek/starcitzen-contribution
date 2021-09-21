@@ -1,0 +1,97 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        My Account       
+    </div>
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            <!--Big blue-->
+            <div class="text-center loading">
+                <h2>Loading..</h2>
+                <div class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+            <div class="row pages" style="display: none;">
+                <div class="col-md-12">
+                  <div class="container">
+                    <div style="float: left; margin-right: 20px;">
+                        <img ng-src="{{me.image}}" width="110px" height="109">
+                    </div>
+
+                    <div class="info" style="float: left;">
+                        <strong ng-bind-html="me.username"></strong><br>
+                       
+                        <span>Email :</span> <strong ng-bind-html="me.email"></strong>
+                        <br>
+                        
+                        <img ng-src="{{me.badge_image}}"> 
+                        <span ng-bind-html="me.badge"></span>
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span>Enlisted</span> 
+                            <p class="text-white" ng-bind-html="me.enlisted"></p><br>
+                             
+                            <span>Fluency</span>
+                            <p class="text-white" ng-bind-html="me.fluency"></p><br>
+                              
+                        </div>
+                        <div class="col-md-6">
+                            <span>Website</span>
+                            <p><a href="{{me.website}}" target="_blank" class="text-white" ng-bind-html="me.website"></a></p><br>
+                            
+                            <span>Bio</span>
+                            <p ng-bind-html="me.bio"></p><br>
+                        </div>
+                    </div>
+                    <hr>
+
+                    
+                        
+                        <!-- <div class="form-row mb-4"> 
+                            <div class="col">
+                                <label for="title" class="float-left">Star Citzen Name</label>
+                                <div class="boann_input">
+                                    <input id="title" type="text" ng-model="me.username" class="form-control input_boann">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row mb-4"> 
+                            <div class="col">
+                                <label for="email" class="float-left">Email adres</label>
+                                <div class="boann_input">
+                                    <input id="email" type="text" ng-model="me.email" class="form-control input_boann">
+                                </div>
+                            </div>
+                        </div> -->
+
+                        
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

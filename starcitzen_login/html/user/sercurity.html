@@ -1,0 +1,126 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Sercurity       
+    </div>
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            <!--Big blue-->
+            <div class="text-center loading">
+                <h2>Loading..</h2>
+                <div class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- style="display: none;" -->
+            <div class="row pages" style="display: none;">
+                <div class="col-md-12">
+                  <div class="container">
+                        <h2>CREDENTIALS</h2>
+
+
+                        <div class="card dark_card" style="margin: 20px 0px 20px;">
+                            <div class="card-body">
+                                
+                                <table class="table">
+                                    <tr id="username">
+                                        <td class="text-white">Star citzen naam</td>
+                                        <td class="text-white" ng-bind-html="me.username"></td>
+                                        <td class="text-white">
+                                            <i ng-click="edit('username')" class="fas fa-edit mous_over float-right"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-show="tab === 'username'">
+                                        <td class="text-white">Star citzen naam</td>
+                                        <td class="text-white">
+                                            <div class="boann_input">
+                                                <input type="text" ng-model="user.username" class="form-control input_boann">
+                                            </div>
+                                            <button class="btn btn-sm btn-warning" ng-click="updateUsername(user)">Update</button>
+                                        </td>
+                                        <td class="text-white">
+                                            <i ng-click="editCancel('username')" class="fas fa-edit mous_over float-right"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr id="password">
+                                        <td class="text-white">password</td>
+                                        <td class="text-white">***********</td>
+                                        <td class="text-white">
+                                            <i ng-click="edit('password')" class="fas fa-edit mous_over float-right"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-if="tab === 'password'">
+                                        <td class="text-white">password</td>
+                                        <td class="text-white">
+                                            <label>New Password</label>
+                                            <div class="boann_input">
+                                                <input type="password" ng-model="password.new_password" class="form-control input_boann">
+                                            </div>
+
+                                            <label>Repeat Password</label>
+                                            <div class="boann_input">
+                                                <input type="password" ng-model="password.password_again" class="form-control input_boann">
+                                            </div>
+
+                                            <button class="btn btn-sm btn-warning" ng-click="updatePassword(password)">Update</button>
+                                        </td> 
+                                        <td class="text-white">
+                                            <i ng-click="editCancel('password')" class="fas fa-edit mous_over float-right"></i>
+                                        </td>                                       
+                                    </tr>
+
+                                    <tr id="email">
+                                        <td class="text-white">Email</td>
+                                        <td class="text-white" ng-bind-html="me.email"></td>
+                                        <td class="text-white">
+                                            <i ng-click="edit('email')" class="fas fa-edit mous_over float-right"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-show="tab === 'email'">
+                                        <td class="text-white">Email</td>                                        
+                                        <td class="text-white">
+                                            <label>New email</label>
+                                            <div class="boann_input">
+                                                <input type="text" ng-model="email.new_email" class="form-control input_boann">
+                                            </div>
+
+                                            <label>Repeat email</label>
+                                            <div class="boann_input">
+                                                <input type="text" ng-model="email.email_again" class="form-control input_boann">
+                                            </div>
+
+                                            <button class="btn btn-sm btn-warning" ng-click="updateEmail(email)">Update</button>
+                                        </td>                                        
+                                        <td class="text-white">
+                                            <i ng-click="editCancel('email')" class="fas fa-edit mous_over float-right"></i>
+                                        </td>                                        
+                                    </tr>
+                                </table>                            
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

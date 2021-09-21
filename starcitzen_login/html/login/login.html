@@ -1,0 +1,24 @@
+<form>
+    <div class="form-group">
+        <label>Star Citzen naam :</label>
+        <input class="form-control" ng-model="form.name" type="text" name="name">
+    </div>
+
+    <div class="form-group">
+        <label>Wachtwoord :</label>
+        <input class="form-control" ng-model="form.password" type="password" name="password">
+    </div>
+
+    <div class="form-check mb-2 mr-sm-2">
+        <input class="form-check-input" ng-model="form.remeber" type="checkbox" id="inlineFormCheckMD">
+        <label class="form-check-label" for="inlineFormCheckMD">
+          Onthouden
+        </label>
+  </div>
+  <hr>
+  <div class="form-group text-center">                              
+    <button ng-click="submit(form)" class="btn btn-sm btn-primary">Inloggen</button>
+    <a ui-sref="wachtwoord_vergeten" class="btn btn-sm btn-primary">Wachtwoord vergeten</a>
+  </div>
+    <p class="text-center"><a ui-sref="register">Nog geen account registreer dan hier!</a></p>
+</form>

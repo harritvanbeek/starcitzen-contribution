@@ -1,0 +1,53 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Get All Ships       
+    </div> 
+
+    <div class="PageHeaderLeft-pageHeaderRight">
+        <div class="quicksearch_inputcontainer">
+            <div class="quicksearchinput_container">                
+                    <label for="search" class="quicksearchinput_icon">Search</label> 
+                    <input id="search" class="quicksearchinput_searchinput" ng-model="search" type="text" autocomplete="off" spellcheck="false">                   
+            </div>
+        </div>
+    </div>     
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            
+            <div class="row pages">
+                <div class="col-md-12">
+                  <div class="container">
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Ship</th>
+                                <th>Price</th>
+                                <th>Location</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="ship in ships | filter : search">
+                                <td class="text-white"> <span ng-bind-html="ship.ship_name"></span> </td>
+                                <td class="text-white"> <span ng-bind-html="ship.price"></span> </td>
+                                <td class="text-white"> <span ng-bind-html="ship.location"></span> </td>
+                                <td class="text-white">
+                                    <a ui-sref="update({uuid:ship.ship_uuid})" ng-click="edit(ship)" class="btn-sm btn btn-indigo">
+                                        Edit
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                  </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
