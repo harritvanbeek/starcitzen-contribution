@@ -7,127 +7,163 @@ boann.controller('dashboardController', ['$scope', '$http', '$window', '$state',
     var URI     =   controler.view + "dashboard/index.php";
     var state   =   $state.$current.url.pattern.split("/")[1];  
 
-    get_aUEC();
-    get_currentbank();
-    get_ShipsToBuy();
 
-    $scope.submit_aUEC  =   function(data){
-        if(data){
-            var VALUES  =   [{data:true, data:data}];    
-            $http.post(URI, VALUES, {params:{action:"post_aUEC"}}).then(function(data){
+    switch(state){
+        case "admin" :
+            $http.get(URI, {params:{action:"getsettings"}}).then(function(data){
                 if(data.status = 200){            
                     if(data.data){
-                        switch(data.data.data){
-                            case "success" :
-                                swal("Well done!!", data.data.dataContent, "success"); 
-                                get_aUEC();
-                                get_currentbank();
-                            break;
-                            
-                            case "error" :
-                                swal("Oeps!", data.data.dataContent, "error"); 
-                                get_aUEC();
-                            break;
-                        }
+                       $scope.form = data.data;                       
                     }           
                 };
-            });          
-        }
-    }
+            });            
 
-    $scope.DonateThisShip = function(data){
-        if(data){
-            
-            var VALUES  =   [{data:true, data:data}];  
-            $http.post(URI, VALUES, {params:{action:"donate_saving_ship"}}).then(function(data){
-                if(data.status = 200){
-                    switch(data.data.data){
-                        case "success" :
-                            swal("Well done!!", data.data.dataContent, "success"); 
-                            get_ShipsToBuy();
-                            get_currentbank();
-                        break;
-                        
-                        case "error" :
-                            swal("Oeps!", data.data.dataContent, "error");                             
-                        break;
-                    }
-                        $('#donating_save_ship').modal('hide');
-                }
-            });
-        }
-    }
+            $scope.SaveSetting = function(data){
+                if(data){
+                    var VALUES  =   [{data:true, data:data}];
+                    $http.post(URI, VALUES, {params:{action:"post_settings"}}).then(function(data){
+                        if(data.status = 200){
+                            switch(data.data.data){
+                                case "success" :
+                                    swal("Well done!!", data.data.dataContent, "success"); 
+                                break;
+                                
+                                case "error" :
+                                    swal("Oeps!", data.data.dataContent, "error");                                         
+                                break;
+                            }
+                        }
+                    });
+                };
+            }
+        break;
 
+        case "dashboard" :
+            get_aUEC();
+            get_currentbank();
+            get_ShipsToBuy();
 
-    $scope.reset_contribution  =   function(data){
-        if(data){
-            swal({
-                title: "You Sure to reset your contribution",
-                text: "",
-                buttons: true,
-                closeOnClickOutside: false,
-                closeOnEsc: false,
-                icon: "info",                            
-            }).then(function(input){
-                if(input){
-                    var VALUES  =   [{data:true, data:"reset"}];
-                    $http.post(URI, VALUES, {params:{action:"reset_contribution"}})
-                        .then(function(data){
-                            swal({
-                                title: "Well done!!",
-                                text: data.data.dataContent,
-                                icon: "success",                            
-                            });
-                            get_currentbank();
-                        });
-                }
-            });
-
-        }
-    }
-
-    $scope.deleteShipDonation  = function(item){
-       if(item){
-            swal({
-                title: "You Sure to delete",
-                text: "",
-                buttons: true,
-                closeOnClickOutside: false,
-                closeOnEsc: false,
-                icon: "info",                            
-            }).then(function(input){
-                if(input){                            
-                    var VALUES  =   [{data:true, data:item}];
-                    $http.post(URI, VALUES, {params:{action:"deleteShipDonation"}}).then(function(data){
+            $scope.submit_aUEC  =   function(data){
+                if(data){
+                    var VALUES  =   [{data:true, data:data}];    
+                    $http.post(URI, VALUES, {params:{action:"post_aUEC"}}).then(function(data){
                         if(data.status = 200){            
                             if(data.data){
-                                swal({
-                                    title: "Well done!!",
-                                    text: data.data.dataContent,
-                                    icon: "success",                            
-                                });
-                                get_ShipsToBuy();
-                                get_currentbank();
-                                $('#show_modal_list').modal('hide'); 
-                                get_DonadedShips(item);
+                                switch(data.data.data){
+                                    case "success" :
+                                        swal("Well done!!", data.data.dataContent, "success"); 
+                                        get_aUEC();
+                                        get_currentbank();
+                                    break;
+                                    
+                                    case "error" :
+                                        swal("Oeps!", data.data.dataContent, "error"); 
+                                        get_aUEC();
+                                    break;
+                                }
                             }           
                         };
-                    });       
+                    });          
                 }
-            });
-       } 
+            }
+
+            $scope.DonateThisShip = function(data){
+                if(data){
+                    
+                    var VALUES  =   [{data:true, data:data}];  
+                    $http.post(URI, VALUES, {params:{action:"donate_saving_ship"}}).then(function(data){
+                        if(data.status = 200){
+                            switch(data.data.data){
+                                case "success" :
+                                    swal("Well done!!", data.data.dataContent, "success"); 
+                                    get_ShipsToBuy();
+                                    get_currentbank();
+                                break;
+                                
+                                case "error" :
+                                    swal("Oeps!", data.data.dataContent, "error");                             
+                                break;
+                            }
+                                $('#donating_save_ship').modal('hide');
+                        }
+                    });
+                }
+            }
+
+
+            $scope.reset_contribution  =   function(data){
+                if(data){
+                    swal({
+                        title: "You Sure to reset your contribution",
+                        text: "",
+                        buttons: true,
+                        closeOnClickOutside: false,
+                        closeOnEsc: false,
+                        icon: "info",                            
+                    }).then(function(input){
+                        if(input){
+                            var VALUES  =   [{data:true, data:"reset"}];
+                            $http.post(URI, VALUES, {params:{action:"reset_contribution"}})
+                                .then(function(data){
+                                    swal({
+                                        title: "Well done!!",
+                                        text: data.data.dataContent,
+                                        icon: "success",                            
+                                    });
+                                    get_currentbank();
+                                });
+                        }
+                    });
+
+                }
+            }
+
+            $scope.deleteShipDonation  = function(item){
+               if(item){
+                    swal({
+                        title: "You Sure to delete",
+                        text: "",
+                        buttons: true,
+                        closeOnClickOutside: false,
+                        closeOnEsc: false,
+                        icon: "info",                            
+                    }).then(function(input){
+                        if(input){                            
+                            var VALUES  =   [{data:true, data:item}];
+                            $http.post(URI, VALUES, {params:{action:"deleteShipDonation"}}).then(function(data){
+                                if(data.status = 200){            
+                                    if(data.data){
+                                        swal({
+                                            title: "Well done!!",
+                                            text: data.data.dataContent,
+                                            icon: "success",                            
+                                        });
+                                        get_ShipsToBuy();
+                                        get_currentbank();
+                                        $('#show_modal_list').modal('hide'); 
+                                        get_DonadedShips(item);
+                                    }           
+                                };
+                            });       
+                        }
+                    });
+               } 
+            }
+
+            $scope.show_modal_list  =   function(data){
+                $('#show_modal_list').modal('show'); 
+                $scope.thisShip = data;
+                get_DonadedShips(data);
+            }
+
+            $scope.show_modal_save_ship = function(data){
+                $scope.thisShip = data;
+                $('#donating_save_ship').modal('show'); 
+            }
+        break;
     }
 
-    $scope.show_modal_list  =   function(data){
-        $('#show_modal_list').modal('show'); 
-        $scope.thisShip = data;
-        get_DonadedShips(data);
-    }
-
-    $scope.show_modal_save_ship = function(data){
-        $scope.thisShip = data;
-        $('#donating_save_ship').modal('show'); 
-    }
+    
     
     function get_DonadedShips(data){
         if(data){

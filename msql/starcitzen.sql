@@ -357,6 +357,49 @@ CREATE TABLE `users` (
 -- Indexen voor geëxporteerde tabellen
 --
 
+
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Gegenereerd op: 21 sep 2021 om 10:24
+-- Serverversie: 10.4.14-MariaDB
+-- PHP-versie: 7.4.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `starcitzen`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `settings`
+--
+
+CREATE TABLE `settings` (
+  `keys` char(36) COLLATE utf8_bin NOT NULL,
+  `params` varchar(255) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Indexen voor tabel `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`keys`);
+COMMIT;
+
+
 --
 -- Indexen voor tabel `donate_ships`
 --

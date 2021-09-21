@@ -13,6 +13,21 @@ class settings {
 		$this->_SESSION		= NEW \classes\core\session;	
 	}
 
+	public function get_settings($data = ''){
+		$this->array 	=	["keys" => "{$data}"];
+		$this->query 	=	"SELECT `params` FROM `settings` WHERE `keys` = :keys ";
+		return $this->_DB->get($this->query, $this->array)->params;
+	}
+
+	public function post_settings($array = []){
+		$this->query =	"INSERT INTO `settings` 
+							(`keys`, `params`) VALUES(:keys, :params)
+							ON DUPLICATE KEY UPDATE
+							`params` = :params
+						";
+		return $this->_DB->action($this->query, $array);
+	}
+
 	public function MakeUuid(){
 		return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 	        mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),

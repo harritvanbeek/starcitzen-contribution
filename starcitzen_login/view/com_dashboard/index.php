@@ -14,6 +14,39 @@
     $ships      =   NEW \classes\view\shipView;
 
     switch($action){
+        case "getsettings":
+                $array  =   [
+                    "sc_orginisation_name"  => $setting->get_settings("sc_orginisation_name"),
+                    "sc_api_key"            => $setting->get_settings("sc_api_key"),
+                ];
+                
+                echo json_encode($array);
+        break;
+
+        case "post_settings":
+            if($input->exist()){
+                $postData   =  $input->get("data");
+                foreach($postData as $keys => $params){
+                    $dataArray  =   [
+                        "keys"      =>  "{$keys}",
+                        "params"    =>  "{$params}",
+                    ];
+                    if($setting->post_settings($dataArray)){
+                        $dataArray  =   [
+                            "data"          =>  "success",
+                            "dataContent"   =>  "Je gegevens zijn bijgewerkt!",
+                        ];
+                    }else{
+                        $dataArray  =   [
+                            "data"          =>  "error",
+                            "dataContent"   =>  "try later again!",
+                        ];
+                    };                    
+                } 
+                    echo json_encode($dataArray);
+            }
+        break;
+
         case "reset_contribution":
             if($input->exist() > 0){
                 if($me->updateContribution(null)){

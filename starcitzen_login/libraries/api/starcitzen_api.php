@@ -9,13 +9,18 @@ class starcitzen_api{
                 $_SESSION   =   NULL; 
     
 
-    protected   $_apiKey  = SC_API,
-                $_ORG     = SC_ORG;
+    protected   $_apiKey    =   NULL,
+                $_ORG       =   NULL;
 
     public function __construct(){
         $this->_DB          = NEW \classes\core\db;                                 
         $this->_CONFIG      = NEW \classes\core\config;                                         
-        $this->_SESSION     = NEW \classes\core\session;                                            
+        $this->_SESSION     = NEW \classes\core\session;  
+        $this->_setting     = NEW \classes\core\settings;
+
+        $this->_apiKey      = $setting->get_settings("sc_api_key");
+        $this->_ORG         = $setting->get_settings("sc_orginisation_name");
+
     }
 
     public function setShip($data = []){
@@ -62,12 +67,6 @@ class starcitzen_api{
 
     }
 
-    public function get_imported_ships(){
-        //WHERE `ship_uuid` = '001c8053-1f8c-40bc-87ed-a6bc6b7fb97e'
-        $this->query = "SELECT * FROM `import_ships` WHERE `ship_uuid` = '00151d5c-4521-42c2-856f-3e933d78dd8f'";
-        return $this->_DB->get($this->query);
-    }
-
     public function ships(){
         return self::request("https://api.starcitizen-api.com/{$this->_apiKey}/v1/auto/ships/");
     }
@@ -87,7 +86,6 @@ class starcitzen_api{
     public function organization_member_exist($value){
         $displaynames = json_decode(self::organization_members())->data;
         foreach($displaynames as $data){
-            //debug($data);
             if($data->display === $value){
                 $return = true;
             }                         

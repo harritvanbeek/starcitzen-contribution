@@ -1,8 +1,5 @@
 boann.config(['$stateProvider', '$urlMatcherFactoryProvider', '$urlRouterProvider', '$locationProvider', 
     function($stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider, $locationProvider){
-        //$urlRouterProvider.otherwise("/dashboard/");
-        //$urlMatcherFactoryProvider.caseInsensitive(true);
-        
         $stateProvider
             .state({
                 name:"admin",

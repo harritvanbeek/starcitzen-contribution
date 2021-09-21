@@ -1,0 +1,33 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Settings       
+    </div>    
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            
+            <div class="container">
+                
+                <div class="boann_input">
+                    <label for="sc_orginisation_name">Orginisation Name</label>
+                    <input id="sc_orginisation_name" ng-model="form.sc_orginisation_name" class="form-control input_boann">
+                </div>
+
+                <div class="boann_input">
+                    <label for="sc_api_key">star cizen api key</label>
+                    <input id="sc_api_key" ng-model="form.sc_api_key" class="form-control input_boann">
+                    <span class="help-block"> <a class="white-text" href="https://starcitizen-api.com/" target="_blank">https://starcitizen-api.com/</a> </span>
+                </div>
+
+                <button ng-click="SaveSetting(form)" class="btn btn-indigo">Save</button>
+
+
+            </div>
+
+
+            
+        </div>
+    </div>
+</div>

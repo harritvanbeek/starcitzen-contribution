@@ -18,5 +18,3 @@
     define('ASSETS',              SITE."/assets");  
     define('THEMES',              SITE."/templates");   
     define('ADMIN_THEMES',        SITE."/templates");
-    define('SC_API',              "W2qPiWJOao9ss0U51MtGKapPfQc4USFl");
-    define('SC_ORG',              "BOANN");
