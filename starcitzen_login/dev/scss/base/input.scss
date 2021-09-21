@@ -1,0 +1,98 @@
+.boannButtonEdit{
+	background: none; 
+	border: 0; 
+	cursor: pointer;
+	.Trippel{
+		position: relative;
+		top: 	 -2px;
+		display: inline-block;
+		width: 	 20px;
+		vertical-align: middle;
+		line-height: 1; 
+		fill: currentColor; 
+		color: hsla(0,0%,100%,.7);
+	}
+}
+
+.btn-edit, .btn-canchel{
+	color: #cc7b19;
+	font-size: 13pt;
+	font-weight: bolder;
+    font-family: Open Sans Semibold,Helvetica Neue,Helvetica,Arial,sans-serif;
+    cursor: pointer;  
+    margin-bottom: 5px; 
+	&:hover{color: #fff;} 
+}
+
+
+.boann_input_file{
+	.custom-file-label{
+		color: hsla(0,0%,100%,.45);
+		background-color: hsla(0,0%,100%,.25);
+		border: 1px solid hsla(0,0%,100%,.25);
+		line-height: 1.8;	
+		&::after{
+			display:none;
+			line-height: 1.8;
+			border-left: none !important;
+			border: 1px solid hsla(0,0%,100%,.25) !important;
+		}	
+	}
+	
+
+	.custom-file-input:lang(en)~.custom-file-label::after, .custom-file-label::after{
+    	content: "Browse";
+	}
+
+
+	.input-group-append{
+		border:none;
+		.input-group-text{
+			border: 1px solid hsla(0,0%,100%,.25);
+		}
+	}
+	.helper{
+		color: #fff;
+		margin-bottom: 20px;
+		font-size: 10pt;
+	}
+}
+
+
+.boann_input{
+	margin-bottom: 20px;
+	label{
+		display: block;
+	    margin: 5px 0;
+	    color: hsla(0,0%,100%,.45);
+	    text-transform: uppercase;
+	    font-size: 13px;
+	    font-family: Open Sans Bold,Helvetica Neue,Helvetica,Arial,sans-serif;
+	}
+	.helper{
+		color: #ffffff;
+		margin-bottom: 20px;
+		font-size: 10pt;
+	}
+	.input_boann{
+		background-color: hsla(0,0%,100%,.25);
+    	color: #eee;
+    	transition: background-color .2s;
+    	border: 0px;
+	}
+	.select-input{
+		color: #eee;
+    	.input-select{
+    		//position: absolute;
+    		padding: 10px 5px 10px 5px;    		    
+    		width: 100%;
+		    height: 100%;
+		    border: none;
+		    background-color: hsla(0,0%,100%,.25);		       
+		    color: #eee;
+		    option{
+	    		 background-color: #2d2d2d;	    		 
+	    	}
+    	}    	
+	}	
+}

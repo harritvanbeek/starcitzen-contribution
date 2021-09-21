@@ -1,0 +1,115 @@
+.ship_cat{
+    .card-warper{
+         position: relative;
+         box-sizing: border-box;
+         padding: 2px;
+         border: 2px solid #6f6f6f;
+         border-radius: 14px;
+         transition: border-color .5s ease;
+         margin-bottom: 21px;
+
+         .card{
+            position: relative;
+            min-height: 40px;
+            background-color: var(--Darkcolor);
+            border: 3px solid hsla(0,0%,78.4%,.9);
+            border-radius: 10px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+
+            .card-inner{
+                border-radius: 8px;
+                .card-heading{
+                   padding: 10px 15px;
+                    h2{
+                        padding:0px;
+                        font-size: unset;
+                    } 
+                    .card-title{
+                        margin-bottom: 0;
+                        padding-top: 5px;
+                        padding-right: 30px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-size: 11pt;
+                        line-height: 1.2;
+
+                        small{
+                          color: #959595; 
+                          font-size: 9pt;
+                          font-weight: 400;
+                          font-family: Open Sans,sans-serif; 
+                        }
+                    }
+
+                    button{
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        color: #c8c8c8;
+                        font-size: 17pt;
+                        &:hover{
+                            color: #9a9a9a;
+                        }
+                    }
+
+                    .active{
+                        color: green;
+                        &:hover{
+                            color: lime;
+                        }
+                    }
+                }
+
+                .card-image{
+                    position: relative;
+                    height: 200px;
+                    overflow: hidden;
+                    border-bottom: 1px solid rgba(0,0,0,.6);
+                    transition: border-radius .5s ease;
+                    a{
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0,0,0,.6);
+                        background-repeat: no-repeat;
+                        background-position: 50%;
+                        background-size: cover;
+                        -webkit-animation-name: fadein;
+                        animation-name: fadeIn;
+                        -webkit-animation-duration: 1s;
+                        animation-duration: 1s;
+                        -webkit-animation-fill-mode: both;
+                        animation-fill-mode: both;
+
+                        .info{
+                            position: relative;
+                            display: block;
+                            top: 50px;
+                            padding: 20px;
+                            color: white;
+                            background-color: rgba(0,0,0, 0.6);
+                            h4{
+                                font-size: 12pt;
+                                font-weight: bold;
+                                span{
+                                    text-align: center;
+                                    display: block;
+                                    span{display: inline-block;}
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .no-details{
+                    overflow: hidden;
+                    border-bottom-right-radius: 16px;
+                    border-bottom-left-radius: 16px;
+                    border-bottom: none;
+                }
+            }
+         }
+    }
+}

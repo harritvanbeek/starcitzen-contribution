@@ -1,0 +1,33 @@
+.dark-scrollbar {
+    scrollbar-face-color: #323232;
+    scrollbar-arrow-color: #323232;
+    scrollbar-track-color: #000;
+    scrollbar-shadow-color: #000;
+    scrollbar-highlight-color: #000;
+    scrollbar-3dlight-color: #000;
+    scrollbar-darkshadow-color: #000;
+}
+.dark-scrollbar::-webkit-scrollbar-track { background-color: rgba(0,0,0,.2);}
+.dark-scrollbar::-webkit-scrollbar { width: 15px; }
+.dark-scrollbar::-webkit-scrollbar-thumb {
+    min-height: 50px;
+    background-color: hsla(0,0%,100%,.15);
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+}
+
+
+.scroll-container {
+    position: relative;
+    flex-grow: 1;
+    padding: 25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.scroller_scroller{}
+
+.scroller_vertical .scroller_auto {
+    overflow-y: auto;
+}

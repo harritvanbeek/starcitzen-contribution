@@ -1,0 +1,181 @@
+.sidebarcontainer_sidebarcontainer{
+	display: flex;
+    flex: 0 0 240px;
+    flex-direction: column;
+    width:  240px;    
+    background-color: rgba(0,0,0,.15);
+    transform: translateZ(0);
+    position: fixed;
+        
+    .serversidebar_sidebarcontent{
+	    height: 100vh;
+	    background-color: rgba(0,0,0,.15);	   
+	    padding-top: 10px;
+    	padding-bottom: 60px;
+    	.SidebarList{
+		  	list-style-type: none !important;
+		  	padding: 0px;
+			.sidebarListHeader, .SidebarListItem{
+				overflow: hidden!important;
+			    min-width: 0;
+			    text-overflow: ellipsis;
+				white-space: nowrap!important;
+				align-content: center;
+				padding-left: 25px;
+				color: hsla(0,0%,100%,.3);
+				text-transform: uppercase;
+			    font-size: 14px;
+			    font-family: Open Sans Bold,Helvetica Neue,Helvetica,Arial,sans-serif;
+			    line-height: 45px;
+			}
+			
+			.SidebarListItem{
+				color: white;
+			    font-size: 14px;
+				align-content: center;
+				line-height: 20px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				a{
+					display: block;
+					color: white;
+				}
+			}
+			.SidebarListItem:hover{
+				background-color: hsla(0,0%,100%,.08);
+			}
+    	}
+    }
+}
+
+.Page-page{
+	font-size: 13px;
+    font-family: Open Sans Semibold,Helvetica Neue,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    margin-left: 240px;
+
+    .PageHeader-pageHeader{
+    	z-index:1;
+    	display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    flex-shrink: 0;
+	    padding: 0 25px;
+	    height: 60px;
+	    box-shadow: 0 3px 6px 0 rgba(0,0,0,.15);
+	    //background-color: rgba(0,0,0,.15);
+	    color: hsla(0,0%,100%,.75);
+	    font-size: 15px;
+	    line-height: 60px;
+
+	    .quicksearch_inputcontainer{
+			    display: inline-block;
+			    margin-left: 12px;
+			    position: relative;
+			    vertical-align: super;
+			    width: 360px;
+			    margin-top: 20px;
+
+			    .quicksearchinput_container{
+				    align-items: center;
+				    background: hsla(0,0%,100%,.08);
+				    border-radius: 16px;
+				    color: #eee;
+				    display: flex;
+				    flex-flow: row nowrap;
+				    font-family: Open Sans Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+				    font-size: 13px;
+				    height: 32px;
+				    padding: 4px;
+				    transition: background-color .2s,color .2s;
+
+				    .quicksearchinput_icon{
+					    align-items: center;
+					    display: flex;
+					    font-size: 16px;
+					    justify-content: center;
+					    margin: 0 4px;
+					}
+
+					.quicksearchinput_searchinput{
+					    background: transparent;
+					    border: none;
+					    color: #eee;
+					    flex-grow: 1;
+					    height: 100%;
+					    outline: 0;
+					    font-size: 12pt;
+					}
+
+					.quicksearch_button {
+					    -webkit-tap-highlight-color: transparent;
+					    background: none;
+					    color: hsla(0,0%,100%,.7);
+					    border: 0;
+					    border-radius: 0;
+					    cursor: pointer;
+					    margin: 0;
+					    outline: none;
+					    padding: 0;
+					    text-align: inherit;
+					    text-decoration: none;
+					    touch-action: manipulation;
+					    transition: color .2s;
+					    -webkit-user-select: none;
+					    user-select: none;
+					    margin-left: 10px;
+					    margin-right: 10px;
+					}
+
+					
+
+				}
+
+				.quicksearch_input_focusd{
+			    	background : #eee !important;
+
+			    	.quicksearchinput_icon, .quicksearchinput_searchinput{
+			    		color : #555;
+			    	}
+			    }
+			}
+
+	    .PageHeaderLeft-pageHeaderLeft{
+	    	display: flex;
+		    align-items: center;
+		    flex: 1 1 25%;
+		    overflow: hidden;
+		    height: 100%;
+		    white-space: nowrap;
+	    }
+
+	    .PageHeaderRight-PageHeaderRight{
+	    	display: flex;
+    		align-items: center;
+    		flex: 1 1 25%;
+    		overflow: hidden;
+    		height: 100%;
+    		white-space: nowrap
+	    }
+    }
+
+    .PageContent-pageContent{
+    	position: relative;
+		flex-grow: 1;
+		
+		.DiscoverPage-discoverPageContent{
+			padding: 30px 55px 60px;
+		}
+
+		.PageContent-innerPageContent{
+			min-width: 100%;
+		    min-height: 100%;
+		}
+    }
+} 
