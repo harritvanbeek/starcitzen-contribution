@@ -9,6 +9,8 @@
     $login      =   NEW \classes\view\loginView;
     $users      =   NEW \classes\view\accountView;
 
+    $starcitzen =   NEW \api\starcitzen_api;
+
     switch($action){
         case "updateUser" :
             if($input->exist()){
@@ -16,7 +18,7 @@
                 $username   = !empty($input->get("data")["username"])   ? $input->get("data")["username"]   : NULL;
                 $email      = !empty($input->get("data")["email"])      ? $input->get("data")["email"]      : NULL;
                 $premission = !empty($input->get("data")["premission"]) ? $input->get("data")["premission"] : NULL;
-                //debug($users->me($uuid)->username);
+                
                 //errors
                 if($username !== $users->me($uuid)->username){
                     if(empty($username)     === true)                               { $error = ["Star Citzen naam is een verplichte veld"];}
