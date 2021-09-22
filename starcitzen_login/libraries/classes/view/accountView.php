@@ -13,16 +13,15 @@ class accountView{
         $this->_SESSION     = NEW \classes\core\session;  
     }
 
-    public function premissions(){
-        $this->premission = self::me()->premissions;
-
+    public function premissions($uuid = ""){
+        $this->premission = self::me($uuid)->premissions;
         switch($this->premission){
             case 1200 :
                 return "admin";
             break;
 
             default:
-                return false;
+                return "user";
             break;
         }
     }
@@ -33,17 +32,16 @@ class accountView{
                             `username`, 
                             `email`, 
                             `bank`,
-                            `contribution`
-                                                      ";
-        $this->query    = "SELECT $this->select 
-                            FROM `users`                             
-                          ";
+                            `contribution`,
+                            `premissions`
+                            ";
+        $this->query    = "SELECT $this->select FROM `users` ";
         $this->return   =   $this->_DB->getAll($this->query);
         return $this->return;
     }
 
-    public function me(){
-        $this->array  = ["userid" => $this->_SESSION->get($this->_CONFIG->get("boann/user"))];
+    public function me($uuid = ""){
+        $this->array  = ["userid" => !empty($uuid) ? $uuid : $this->_SESSION->get($this->_CONFIG->get("boann/user"))];
         $this->query  = "SELECT `uuid`, `username`, `email`, `bank`, `contribution`, `premissions` FROM `users` WHERE `uuid` = :userid ";
         $this->return   =   $this->_DB->get($this->query, $this->array);
         return $this->return;
@@ -57,6 +55,19 @@ class accountView{
         $this->query    = "UPDATE `users` SET `contribution` = :contribution WHERE `uuid` = :uuid ";
         $this->return   =   $this->_DB->action($this->query, $this->array);
         return $this->return;    
+    }
+
+    public function updateUserAdmin($data = []){
+        $this->query = "UPDATE `users`
+                            SET 
+                                `username`      = :username,
+                                `email`         = :email,
+                                `premissions`   = :premission
+
+                            WHERE `uuid` = :uuid
+                        ";
+        $this->return   =   $this->_DB->action($this->query, $data);
+        return $this->return;
     }
 
     public function updateUsername($data = []){

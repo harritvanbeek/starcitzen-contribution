@@ -1,0 +1,93 @@
+<div class="PageHeader-pageHeader">
+    <div class="PageHeaderLeft-pageHeaderLeft">
+        Users       
+    </div> 
+
+    <div class="PageHeaderLeft-pageHeaderRight">
+        <div class="quicksearch_inputcontainer">
+            <div class="quicksearchinput_container">                
+                    <label for="search" class="quicksearchinput_icon">Search</label> 
+                    <input id="search" class="quicksearchinput_searchinput" ng-model="search" type="text" autocomplete="off" spellcheck="false">                   
+            </div>
+        </div>
+    </div>     
+</div>
+
+<div class="PageContent-pageContent Scroller-scroller Scroller-vertical">
+    <div class="DiscoverPage-discoverPageContent PageContent-innerPageContent">
+        <div style="margin-bottom: 20px">
+            <div class="row pages">
+                <div class="col-md-12">
+                  <div class="container">                       
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Premissions</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="user in users | filter : search">
+                                    <td class="text-white"> <span ng-bind-html="user.username"></span> </td>
+                                    <td class="text-white"> <span ng-bind-html="user.email"></span> </td>
+                                    <td class="text-white"> <span ng-bind-html="user.premissions"></span> </td>
+                                    <td class="text-white">
+                                        <a ng-click="edit(user)" data-toggle="modal" data-target="#basicExampleModal">
+                                            <i class="far fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update user:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            
+            <div class="boann_input">
+                <label for="username">Username</label>
+                <input id="username" ng-model="user.username" class="form-control input_boann">
+            </div>
+
+            <div class="boann_input">
+                <label for="email">Email</label>
+                <input id="email" ng-model="user.email" class="form-control input_boann">
+            </div>
+
+            <div class="boann_input">
+                <div class="select-input">
+                    <label for="premission">Premissions</label>
+                    <select id="premission" ng-model="user.premission" class="browser-default custom-select input-select">
+                        <option ng-repeat="premission in premissions" value="{{premission.value}}" ng-bind-html="premission.premission"></option>                        
+                    </select>
+                </div>
+            </div>            
+      </div>
+      <div class="modal-footer">
+        <button ng-click="updateUser(user)" type="button" class="btn btn-indigo">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

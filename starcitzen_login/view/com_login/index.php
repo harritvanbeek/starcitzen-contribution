@@ -44,12 +44,7 @@
                     ];
 
                     if($login->register($postArray) > 0){
-                        //log user in
-                        
-                        //get user info
                         $me =   $login->userData($username);
-
-                        //set session
                         $session->put($_config->get("boann/user"), $me->uuid);
                         
                         $dataArray  =   [

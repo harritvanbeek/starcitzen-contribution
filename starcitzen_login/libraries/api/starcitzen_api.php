@@ -18,9 +18,8 @@ class starcitzen_api{
         $this->_SESSION     = NEW \classes\core\session;  
         $this->_setting     = NEW \classes\core\settings;
 
-        $this->_apiKey      = $setting->get_settings("sc_api_key");
-        $this->_ORG         = $setting->get_settings("sc_orginisation_name");
-
+        $this->_apiKey      = $this->_setting->get_settings("sc_api_key");
+        $this->_ORG         = $this->_setting->get_settings("sc_orginisation_name");
     }
 
     public function setShip($data = []){

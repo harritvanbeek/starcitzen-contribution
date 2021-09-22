@@ -23,6 +23,27 @@ boann.config(['$stateProvider', '$urlMatcherFactoryProvider', '$urlRouterProvide
             })
 
             .state({
+                name:"users",
+                url: "/users/",
+                views : {
+                    "navbar" : {
+                        templateUrl : "./html/user/navbar.html?v="+controler.version,    
+                        controller: "NavbarController",                 
+                    },
+
+                    "sidebar" : {
+                        templateUrl : "./html/admin/sidebar.html?v="+controler.version,   
+                        //controller: "SidebarController",                    
+                    },
+
+                    "mainpage" : {
+                        templateUrl : "./html/admin/users.html?v="+controler.version,                        
+                        controller  : "usersController",
+                    },
+                }
+            })
+
+            .state({
                 name:"import",
                 url: "/import/",
                 views : {
